@@ -3,7 +3,7 @@ package com.delkabo.config;
 import org.aeonbits.owner.ConfigFactory;
 
 public class Project {
-    public static ProjectConfig config = ConfigFactory.create(ProjectConfig.class, System.getProperties());
+    public static ProjectConfig config = ConfigFactory.create(ProjectConfig.class);
 
     public static boolean isWebMobile() {
         return !config.browserMobileView().equals("");

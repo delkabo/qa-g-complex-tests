@@ -1,5 +1,6 @@
 package com.delkabo.tests;
 
+import com.delkabo.config.Project;
 import io.qameta.allure.Description;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
@@ -15,25 +16,21 @@ import static io.restassured.RestAssured.given;
 
 public class LitresTests extends TestBase {
 
-    @Test
-    void restTest() {
-        String document =
-        given()
-                .body("")
-                .when()
-                .get("https://www.litres.ru/")
-                .then()
-                .extract().asString();
-
-    }
+//    @Test
+//    void restTest() {
+//        String document =
+//        given()
+//                .body("")
+//                .when()
+//                .get("https://www.litres.ru/")
+//                .then()
+//                .extract().asString();
+//    }
 
     @Test
     @Description("Тест авторизации")
     @DisplayName("Test 1")
     void titleTest() {
-        String myLogin = System.getProperty("myLogin");
-        String myPassword = System.getProperty("myPassword");
-
         step("Открыть url 'https://www.litres.ru/'", () ->
                 open("https://www.litres.ru/"));
 
@@ -42,11 +39,11 @@ public class LitresTests extends TestBase {
 
         step("выбор ", () -> $(".Button-module__primary_orange").click());
 
-        step("ввод логина", () -> $(".AuthorizationPopup-module__input").setValue(myLogin));
+        step("ввод логина", () -> $(".AuthorizationPopup-module__input").setValue(Project.config.myLogin()));
 
         step("клик по кнопке", () -> $(".childContainer-0-2-4").click());
 
-        step("ввод пароля", () -> $(".AuthorizationPopup-module__input").setValue(myPassword));
+        step("ввод пароля", () -> $(".AuthorizationPopup-module__input").setValue(Project.config.myPassword()));
 
         step("подтверждение ввода пароля", () -> $(".childContainer-0-2-4").click());
 
