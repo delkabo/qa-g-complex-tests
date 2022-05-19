@@ -29,7 +29,7 @@ public class LitresTests extends TestBase {
 
     @Test
     @Description("Тест авторизации")
-    @DisplayName("Test 1")
+    @DisplayName("Тест авторизации")
     void titleTest() {
         step("Открыть url 'https://www.litres.ru/'", () ->
                 open("https://www.litres.ru/"));
@@ -53,7 +53,7 @@ public class LitresTests extends TestBase {
 
     @Test
     @Description("Найти книгу 'Война и Мир'")
-    @DisplayName("Test 2")
+    @DisplayName("Найти книгу 'Война и Мир'")
     void findBook() {
 
         step("Открыть url 'https://www.litres.ru/'", () ->
@@ -68,8 +68,8 @@ public class LitresTests extends TestBase {
 
     @Test
     @Description("Найти раздел Подработки")
-    @DisplayName("Test 3")
-    void test1() {
+    @DisplayName("Найти раздел Подработки")
+    void jobTest() {
 
         step("Открыть url 'https://www.litres.ru/'", () ->
                 open("https://www.litres.ru/"));
@@ -86,7 +86,7 @@ public class LitresTests extends TestBase {
 
     @Test
     @Description("Найти раздел 'Книжные бестселлеры'")
-    @DisplayName("Test 4")
+    @DisplayName("Найти раздел 'Книжные бестселлеры'")
     void checkPopular() {
 
         step("Открыть url 'https://www.litres.ru/'", () ->
@@ -101,8 +101,8 @@ public class LitresTests extends TestBase {
 
     @Test
     @Description("Проверить раздел 'хобби и досуг'")
-    @DisplayName("Test 5")
-    void test3() {
+    @DisplayName("Проверить раздел 'хобби и досуг'")
+    void hobbieTest() {
 
         step("Открыть url 'https://www.litres.ru/'", () ->
                 open("https://www.litres.ru/"));
