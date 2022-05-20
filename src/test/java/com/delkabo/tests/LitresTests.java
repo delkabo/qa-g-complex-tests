@@ -2,7 +2,6 @@ package com.delkabo.tests;
 
 import com.delkabo.config.Project;
 import io.qameta.allure.Description;
-import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -11,25 +10,14 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static com.codeborne.selenide.Selectors.byText;
-import static io.restassured.RestAssured.given;
 
 
 public class LitresTests extends TestBase {
 
-//    @Test
-//    void restTest() {
-//        String document =
-//        given()
-//                .body("")
-//                .when()
-//                .get("https://www.litres.ru/")
-//                .then()
-//                .extract().asString();
-//    }
 
     @Test
+    @DisplayName("Найти книгу 'Война и Мир'")
     @Description("Тест авторизации")
-    @DisplayName("Тест авторизации")
     void titleTest() {
         step("Открыть url 'https://www.litres.ru/'", () ->
                 open("https://www.litres.ru/"));
@@ -116,5 +104,4 @@ public class LitresTests extends TestBase {
         step("Проверить название 'Хобби, досуг' на странице", () ->
                 $(".new-container").shouldHave(text("Хобби, досуг")));
     }
-
 }
