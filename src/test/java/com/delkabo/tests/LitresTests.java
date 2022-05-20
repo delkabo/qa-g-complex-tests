@@ -1,8 +1,13 @@
 package com.delkabo.tests;
 
 import com.delkabo.config.Project;
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -16,7 +21,11 @@ public class LitresTests extends TestBase {
 
 
     @Test
-    @DisplayName("Найти книгу 'Война и Мир'")
+    @AllureId("10001")
+    @DisplayName("Тест авторизации")
+    @Tags({@Tag("ui"), @Tag("selenide")})
+    @Owner("allure8")
+    @Feature("Тест авторизации")
     @Description("Тест авторизации")
     void titleTest() {
         step("Открыть url 'https://www.litres.ru/'", () ->
@@ -40,8 +49,12 @@ public class LitresTests extends TestBase {
     }
 
     @Test
-    @Description("Найти книгу 'Война и Мир'")
+    @AllureId("10002")
     @DisplayName("Найти книгу 'Война и Мир'")
+    @Tags({@Tag("ui"), @Tag("selenide")})
+    @Owner("allure8")
+    @Feature("Поиск книги")
+    @Description("Найти книгу 'Война и Мир'")
     void findBook() {
 
         step("Открыть url 'https://www.litres.ru/'", () ->
@@ -55,8 +68,12 @@ public class LitresTests extends TestBase {
     }
 
     @Test
-    @Description("Найти раздел Подработки")
-    @DisplayName("Найти раздел Подработки")
+    @AllureId("10006")
+    @DisplayName("Найти раздел Подборки")
+    @Tags({@Tag("ui"), @Tag("selenide")})
+    @Owner("allure8")
+    @Feature("Поиск необходимого раздела")
+    @Description("Найти раздел Подборки")
     void jobTest() {
 
         step("Открыть url 'https://www.litres.ru/'", () ->
@@ -73,8 +90,12 @@ public class LitresTests extends TestBase {
     }
 
     @Test
-    @Description("Найти раздел 'Книжные бестселлеры'")
+    @AllureId("10003")
     @DisplayName("Найти раздел 'Книжные бестселлеры'")
+    @Tags({@Tag("ui"), @Tag("selenide")})
+    @Owner("allure8")
+    @Feature("Поиск необходимого раздела")
+    @Description("Найти раздел 'Книжные бестселлеры'")
     void checkPopular() {
 
         step("Открыть url 'https://www.litres.ru/'", () ->
@@ -88,8 +109,12 @@ public class LitresTests extends TestBase {
     }
 
     @Test
-    @Description("Проверить раздел 'хобби и досуг'")
+    @AllureId("10007")
     @DisplayName("Проверить раздел 'хобби и досуг'")
+    @Tags({@Tag("ui"), @Tag("selenide")})
+    @Owner("allure8")
+    @Feature("Поиск необходимого раздела")
+    @Description("Проверить раздел 'хобби и досуг'")
     void hobbieTest() {
 
         step("Открыть url 'https://www.litres.ru/'", () ->
