@@ -1,4 +1,4 @@
-package com.delkabo.helpers;
+package com.delkabo.drivers.web;
 
 import com.delkabo.config.Project;
 import com.codeborne.selenide.Selenide;

@@ -1,5 +1,6 @@
-package com.delkabo.helpers;
+package com.delkabo.helpers.web;
 
+import com.delkabo.drivers.web.DriverUtils;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Attachment;
 import org.slf4j.Logger;

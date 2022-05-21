@@ -1,4 +1,4 @@
-package com.delkabo.helpers;
+package com.delkabo.helpers.web;
 
 import io.qameta.allure.restassured.AllureRestAssured;
 

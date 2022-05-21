@@ -16,4 +16,5 @@ public class Project {
     public static boolean isVideoOn() {
         return !config.videoStorage().equals("");
     }
+
 }

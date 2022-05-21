@@ -1,4 +1,4 @@
-package com.delkabo.helpers;
+package com.delkabo.drivers.web;
 
 import com.delkabo.config.Project;
 import com.codeborne.selenide.Configuration;
@@ -8,7 +8,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DriverSettings {
+public class WebDriver {
 
     public static void configure() {
         Configuration.browser = Project.config.browser();

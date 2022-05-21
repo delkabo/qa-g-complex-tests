@@ -1,10 +1,8 @@
-package com.delkabo.tests;
+package com.delkabo.tests.web;
 
 import com.delkabo.config.Project;
-import io.qameta.allure.AllureId;
-import io.qameta.allure.Description;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Owner;
+import com.delkabo.tests.TestBase;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -16,15 +14,15 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static com.codeborne.selenide.Selectors.byText;
 
-
+@Owner("syapuckovkr")
 public class LitresTests extends TestBase {
 
 
     @Test
     @AllureId("10001")
     @DisplayName("Тест авторизации")
-    @Tags({@Tag("ui"), @Tag("selenide")})
-    @Owner("allure8")
+    @Tag("ui")
+    @Severity(SeverityLevel.NORMAL)
     @Feature("Тест авторизации")
     @Description("Тест авторизации")
     void titleTest() {
@@ -51,8 +49,8 @@ public class LitresTests extends TestBase {
     @Test
     @AllureId("10002")
     @DisplayName("Найти книгу 'Война и Мир'")
-    @Tags({@Tag("ui"), @Tag("selenide")})
-    @Owner("allure8")
+    @Tag("ui")
+    @Severity(SeverityLevel.NORMAL)
     @Feature("Поиск книги")
     @Description("Найти книгу 'Война и Мир'")
     void findBook() {
@@ -70,8 +68,8 @@ public class LitresTests extends TestBase {
     @Test
     @AllureId("10006")
     @DisplayName("Найти раздел Подборки")
-    @Tags({@Tag("ui"), @Tag("selenide")})
-    @Owner("allure8")
+    @Tag("ui")
+    @Severity(SeverityLevel.NORMAL)
     @Feature("Поиск необходимого раздела")
     @Description("Найти раздел Подборки")
     void jobTest() {
@@ -92,8 +90,8 @@ public class LitresTests extends TestBase {
     @Test
     @AllureId("10003")
     @DisplayName("Найти раздел 'Книжные бестселлеры'")
-    @Tags({@Tag("ui"), @Tag("selenide")})
-    @Owner("allure8")
+    @Tag("ui")
+    @Severity(SeverityLevel.NORMAL)
     @Feature("Поиск необходимого раздела")
     @Description("Найти раздел 'Книжные бестселлеры'")
     void checkPopular() {
@@ -111,8 +109,8 @@ public class LitresTests extends TestBase {
     @Test
     @AllureId("10007")
     @DisplayName("Проверить раздел 'хобби и досуг'")
-    @Tags({@Tag("ui"), @Tag("selenide")})
-    @Owner("allure8")
+    @Tag("ui")
+    @Severity(SeverityLevel.NORMAL)
     @Feature("Поиск необходимого раздела")
     @Description("Проверить раздел 'хобби и досуг'")
     void hobbieTest() {
