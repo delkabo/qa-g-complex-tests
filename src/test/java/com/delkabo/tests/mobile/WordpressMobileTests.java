@@ -16,10 +16,13 @@ import org.openqa.selenium.WebElement;
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
+import static com.delkabo.tests.mobile.TestBase.loginWP;
+import static com.delkabo.tests.mobile.TestBase.passwordWP;
 import static io.qameta.allure.Allure.step;
 
 @Owner("syapuckovkr")
-public class AndroidSelenideTestsHW extends TestBase {
+@Tag("mobile")
+public class WordpressMobileTests extends TestBase {
 
     @Test
     @Tag("mobile")
@@ -98,7 +101,6 @@ public class AndroidSelenideTestsHW extends TestBase {
         });
 
     }
-
 
     @Test
     @Tag("mobile")

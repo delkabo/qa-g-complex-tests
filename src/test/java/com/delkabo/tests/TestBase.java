@@ -2,14 +2,12 @@ package com.delkabo.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.delkabo.config.Project;
-import com.delkabo.helpers.web.AllureAttachments;
+import com.delkabo.helpers.Attach;
 import com.delkabo.drivers.web.WebDriver;
-import com.delkabo.drivers.web.DriverUtils;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.delkabo.drivers.mobile.BrowserstackMobileDriver;
 import com.delkabo.drivers.mobile.EmulatorMobileDriver;
-import com.delkabo.helpers.mobile.Attach;
 import io.qameta.allure.junit5.AllureJunit5;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
@@ -24,12 +22,10 @@ import static com.codeborne.selenide.Selenide.open;
 public class TestBase {
 
     public static String deviceHost = System.getProperty("deviceHost");
-    public static String loginWP,
-                          passwordWP;
+
 
     @BeforeAll
     static void setUp() {
-        String deleteProp = "emulation";
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         switch (deviceHost) {
             case "web":
@@ -37,19 +33,13 @@ public class TestBase {
                 break;
             case "real":
                 Configuration.browser = EmulatorMobileDriver.class.getName();
-                loginWP = EmulatorMobileDriver.configEmul.loginWP();
-                passwordWP = EmulatorMobileDriver.configEmul.passwordWP();
                 Configuration.browserSize = null;
             case "emulation":
                 Configuration.browser = EmulatorMobileDriver.class.getName();
-                loginWP = EmulatorMobileDriver.configEmul.loginWP();
-                passwordWP = EmulatorMobileDriver.configEmul.passwordWP();
                 Configuration.browserSize = null;
                 break;
             case "browserstack":
                 Configuration.browser = BrowserstackMobileDriver.class.getName();
-                loginWP = BrowserstackMobileDriver.configBStack.loginWP();
-                passwordWP = BrowserstackMobileDriver.configBStack.passwordWP();
                 Configuration.browserSize = null;
                 break;
             default:
@@ -64,26 +54,43 @@ public class TestBase {
 
     @AfterEach
     public void addAttachments() {
-        String sessionId = ""; // String sessionId = ""; DriverUtils.getSessionId()
 
-        if (System.getProperty("deviceHost").equals("browserstack")) {
-            sessionId = Attach.sessionId();
-            Attach.video(sessionId);
+        String sessionId;
+
+        switch (deviceHost) {
+            case "web":
+                sessionId = Attach.sessionId();
+                Attach.addPageSource();
+                Attach.addBrowserConsoleLogs();
+                break;
+            case "browserstack":
+                sessionId = Attach.sessionId();
+                Attach.video(sessionId);
+                break;
+            default:
+                sessionId = "";
         }
 
-        AllureAttachments.addScreenshotAs("Last screenshot");
 
-        if (System.getProperty("deviceHost").equals("web")) {
-            AllureAttachments.addPageSource();
-            AllureAttachments.addBrowserConsoleLogs();
-        }
+//        if (System.getProperty("deviceHost").equals("browserstack")) {
+//            sessionId = Attach.sessionId();
+//            Attach.video(sessionId);
+//        }
+
+//        if (System.getProperty("deviceHost").equals("web")) {
+//            Attach.addPageSource();
+//            Attach.addBrowserConsoleLogs();
+//        }
+
+        Attach.addScreenshotAs("Last screenshot");
+        Attach.addPageSource();
         Selenide.closeWebDriver();
 
         if (Project.isVideoOn()) {
-            AllureAttachments.addVideo(sessionId);
+            Attach.addVideo(sessionId);
         }
 
-        if (System.getProperty("deviceHost").equals("browserstack")) {
+        if (deviceHost.equals("browserstack")) {
             Attach.video(sessionId);
         }
     }

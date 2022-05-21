@@ -11,6 +11,7 @@ repositories {
 group 'guru.qa'
 version '1.0'
 
+
 def restAssuredVersion = "5.0.1",
     allureVersion = "2.17.3",
     selenideVersion = "6.4.0",
@@ -66,9 +67,13 @@ tasks.withType(Test) {
         ]
     }
 
-tasks.withType(Test) {
-    systemProperties(System.getProperties())
-    useJUnitPlatform()
+    test {
+        def tags = System.getProperty("tag") ? System.getProperty("tag") : "web"
+        useJUnitPlatform() {
+            includeTags(tags)
+        }
+
+    }
 
     testLogging {
         lifecycle {
@@ -78,9 +83,13 @@ tasks.withType(Test) {
     }
 }
 
-task ui_tests(type: Test) {
+test {
+    useJUnitPlatform()
+}
+
+task web_tests(type: Test) {
     useJUnitPlatform {
-        includeTags "ui"
+        includeTags "web"
     }
 }
 
@@ -89,6 +98,7 @@ task mobile_tests(type: Test) {
         includeTags "mobile"
     }
 }
+
 
 
 
