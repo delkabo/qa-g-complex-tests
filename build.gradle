@@ -15,7 +15,7 @@ version '1.0'
 def restAssuredVersion = "5.0.1",
     allureVersion = "2.17.3",
     selenideVersion = "6.4.0",
-    junitVersion = "5.8.2",
+    junitVersion = "5.7.2",
     slf4jVersion = "1.7.32",
     appiumVersion = "8.0.0"
 

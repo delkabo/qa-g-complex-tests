@@ -17,14 +17,15 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import static com.codeborne.selenide.Selenide.open;
 
 
-@ExtendWith({AllureJunit5.class})
 public class TestBase {
+
 
     public static String deviceHost = System.getProperty("deviceHost");
 
 
     @BeforeAll
     static void setUp() {
+        System.setProperty("deviceHost", "local");
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         switch (deviceHost) {
             case "web":
