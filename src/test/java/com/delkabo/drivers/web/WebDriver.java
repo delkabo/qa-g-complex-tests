@@ -1,19 +1,33 @@
-package com.delkabo.helpers;
+package com.delkabo.drivers.web;
 
-import com.delkabo.config.Project;
 import com.codeborne.selenide.Configuration;
+import com.delkabo.config.ProjectConfig;
+import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class DriverSettings {
+public class WebDriver {
+
+    public static ProjectConfig config = ConfigFactory.create(ProjectConfig.class);
+
+    public static boolean isWebMobile() {
+        return !config.browserMobileView().equals("");
+    }
+    public static boolean isRemoteWebDriver() {
+        return !config.remoteDriverUrl().equals("");
+    }
+    public static boolean isVideoOn() {
+        return !config.videoStorage().equals("");
+    }
+
 
     public static void configure() {
-        Configuration.browser = Project.config.browser();
-        Configuration.browserVersion = Project.config.browserVersion();
-        Configuration.browserSize = Project.config.browserSize();
+        Configuration.browser = config.browser();
+        Configuration.browserVersion = config.browserVersion();
+        Configuration.browserSize = config.browserSize();
 //        Configuration.baseUrl = App.config.webUrl();
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -25,16 +39,16 @@ public class DriverSettings {
         chromeOptions.addArguments("--disable-notifications");
         chromeOptions.addArguments("--lang=en-en");
 
-        if (Project.isWebMobile()) { // for chrome only
+        if (isWebMobile()) { // for chrome only
             Map<String, Object> mobileDevice = new HashMap<>();
-            mobileDevice.put("deviceName", Project.config.browserMobileView());
+            mobileDevice.put("deviceName", config.browserMobileView());
             chromeOptions.setExperimentalOption("mobileEmulation", mobileDevice);
         }
 
-        if (Project.isRemoteWebDriver()) {
+        if (isRemoteWebDriver()) {
             capabilities.setCapability("enableVNC", true);
             capabilities.setCapability("enableVideo", true);
-            Configuration.remote = Project.config.remoteDriverUrl();
+            Configuration.remote = config.remoteDriverUrl();
         }
 
         capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
