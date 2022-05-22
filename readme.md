@@ -1,4 +1,4 @@
-#King test automation project
+#Diplom work with mobile and desktop browser tests
 
 ## :page_with_curl:	Content
 
@@ -44,6 +44,7 @@
 <img width="6%" title="GitHub" src="images/logo/GitHub.svg">
 <img width="6%" title="Jenkins" src="images/logo/Jenkins.svg">
 <img width="6%" title="Telegram" src="images/logo/Telegram.svg">
+<img width="6%" title="Telegram" src="images/logo/Android.svg">
 </p>
 
 In this project, autotests are written in <code>Java</code> using <code>Selenide</code> for UI tests.
@@ -61,12 +62,29 @@ In this project, autotests are written in <code>Java</code> using <code>Selenide
 > After the run is completed, notifications are sent using the bot to <code>Telegram</code>.
 
 
-## Running tests from the terminal
+## :robot: Running tests from the terminal
 
 ### :robot: Running Tests Locally
 
 ```
-gradle clean test
+gradle clean -Ddevicehost=${DEVICEHOST} -Dtag={tag}
+```
+### :robot: Options for local test
+
+> DEVICEHOST = real, emulation, browserstack, web
+> TAG = mobile, web
+>
+> DEVICEHOST real, emulation, browserstack and TAG mobile for testing on mobile phone
+> DEVICEHOST web and TAG web for test on desktop browser
+
+
+### Command for browser tests on remote server
+```
+gradle clean -DremoteDriverUrl=${REMOTEDRIVERURL} -Ddevicehost=${DEVICEHOST} -Dtag={tag}
+```
+### WHERE
+```
+REMOTEDRIVERURL - remote server
 ```
 
 ### :robot: Remote test running
@@ -75,6 +93,8 @@ gradle clean test
 ```
 clean
 test
+-DdeviceHost=${DEVICEHOST}
+-Dtag=${TAG}
 -Dbrowser=${BROWSER}
 -DbrowserVersion=${BROWSER_VERSION}
 -DbrowserSize=${BROWSER_SIZE}
@@ -96,7 +116,7 @@ test
 
 
 
-### :pushpin: Main page of <a target="_blank" href="https://jenkins.autotests.cloud/job/AUTO-760/18/allure/">Allure-report</a>
+### :pushpin: Main page of Allure-report
 
 <p align="center">
 <img title="Allure Overview" src="images/screens/allure_overview.png">
@@ -115,6 +135,12 @@ test
 <img title="Allure Overview Dashboard" src="images/screens/allure_overview_dashboard.png">
 </p>
 
+### :pushpin: Launches Allure-TestOps
+
+<p align="center">
+<img title="Telegram Notifications" src="images/screens/allure_testops.png">
+</p>
+
 
 ## <img width="4%" title="Telegram" src="images/logo/Telegram.svg"> Telegram notifications using a bot
 
@@ -126,7 +152,12 @@ test
 
 ## <img width="4%" title="Selenoid" src="images/logo/Selenoid.svg"> An example of running a test in Selenoid
 
-> A video is attached to each test in the report. One of these videos is shown below.
 <p align="center">
   <img title="Selenoid Video" src="images/gif/selenoid_video.gif">
+</p>
+
+## An example of running a mobile test
+
+<p align="center">
+  <img title="Mobile test Video" src="images/gif/mobile_video.gif">
 </p>
