@@ -8,7 +8,10 @@ import com.delkabo.tests.TestBase;
 import io.appium.java_client.AppiumBy;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -26,6 +29,8 @@ public class WordpressMobileTests extends TestBase {
 
     @Test
     @Tag("mobile")
+    @Tag("smoke")
+    @Severity(SeverityLevel.NORMAL)
     void searchTest() {
 
         step("Skip onboarding", Selenide::back);
@@ -42,6 +47,7 @@ public class WordpressMobileTests extends TestBase {
 
     @Test
     @Tag("mobile")
+    @Severity(SeverityLevel.NORMAL)
     @Description("Check add article in Saved and Delete article from Saved")
     void addInSavedTest() {
 
@@ -104,6 +110,7 @@ public class WordpressMobileTests extends TestBase {
 
     @Test
     @Tag("mobile")
+    @Severity(SeverityLevel.CRITICAL)
     @Description("login and logout")
     void loginTest() {
         step("Skip onboarding", Selenide::back);

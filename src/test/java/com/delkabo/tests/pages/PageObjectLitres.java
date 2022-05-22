@@ -1,11 +1,11 @@
 package com.delkabo.tests.pages;
 
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.impl.SelenideElementDescriber;
-import com.delkabo.config.Project;
+import com.delkabo.drivers.web.WebDriver;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
@@ -20,9 +20,11 @@ public class PageObjectLitres {
                     profileSection = $(".Profile-module__profileLink"),
                     searchModule = $(".Search-module__input"),
                     searchContent = $("#search__content"),
-                    genresButton = $(".LowerMenu-module__popoverContentWrapp"),
-                    groupCollection = $(".biblio-genres-uplink"),
-                    groupLeftMenu = $(".sorting_menu_left");
+                    genresButton = $(".LowerMenu-module__genres"),
+                    groupCollection = $(".new-container [itemprop='about']"),
+                    buttonMore = $(".LowerMenu-module__more"),
+                    lowerMenu = $(".LowerMenu-module__wrapper"),
+                    headersGenres = $(".book_ratings h1[itemprop='about']");
 
     public PageObjectLitres openLogin() {
         loginModule.click();
@@ -31,13 +33,13 @@ public class PageObjectLitres {
     }
 
     public PageObjectLitres setLogin() {
-        authorizationLogin.setValue(Project.config.myLogin());
+        authorizationLogin.setValue(WebDriver.config.myLogin());
         submitContainer.click();
         return this;
     }
 
     public PageObjectLitres setPassword() {
-        authorizationPassword.setValue(Project.config.myPassword());
+        authorizationPassword.setValue(WebDriver.config.myPassword());
         submitContainer.click();
         return this;
     }
@@ -72,13 +74,32 @@ public class PageObjectLitres {
         return this;
     }
 
-    public PageObjectLitres clickTopMenuGenres(String genres) {
-        $$(".LowerMenu-module__item").findBy(text(genres)).click();
+    //
+    public PageObjectLitres clickMore() {
+        buttonMore.click();
         return this;
     }
 
+    public PageObjectLitres clickTopMenuGenres(String genres) {
+//        $$(".MoreMenu-module__wrapper").findBy(text(genres)).click();
+        $(".Popover-module__popover").$(withText(genres)).click();
+        return this;
+    }
+
+
     public PageObjectLitres checkTopMenuGenres(String genres) {
-        groupLeftMenu.shouldHave(text(genres));
+//        groupLeftMenu.shouldHave(text(genres));
+        $(".grouped__collection h1").shouldHave(text(genres));
+        return this;
+    }
+
+    public PageObjectLitres selectButtonGenres(String genres) {
+        lowerMenu.$(withText(genres)).click();
+        return this;
+    }
+
+    public PageObjectLitres findAndCheck(String genres) {
+        headersGenres.shouldHave(text(genres));
         return this;
     }
 

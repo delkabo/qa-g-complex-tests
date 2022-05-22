@@ -1,7 +1,6 @@
 package com.delkabo.tests;
 
 import com.codeborne.selenide.Configuration;
-import com.delkabo.config.Project;
 import com.delkabo.helpers.Attach;
 import com.delkabo.drivers.web.WebDriver;
 import com.codeborne.selenide.Selenide;
@@ -71,22 +70,11 @@ public class TestBase {
                 sessionId = "";
         }
 
-
-//        if (System.getProperty("deviceHost").equals("browserstack")) {
-//            sessionId = Attach.sessionId();
-//            Attach.video(sessionId);
-//        }
-
-//        if (System.getProperty("deviceHost").equals("web")) {
-//            Attach.addPageSource();
-//            Attach.addBrowserConsoleLogs();
-//        }
-
         Attach.addScreenshotAs("Last screenshot");
         Attach.addPageSource();
         Selenide.closeWebDriver();
 
-        if (Project.isVideoOn()) {
+        if (WebDriver.isVideoOn()) {
             Attach.addVideo(sessionId);
         }
 
