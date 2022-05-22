@@ -6,7 +6,8 @@ import org.aeonbits.owner.Config;
 @Config.Sources({
         "system:properties",
         "classpath:config/local.properties",
-        "classpath:config/remote.properties"
+        "classpath:config/remote.properties",
+        "litres.properties"
 })
 public interface ProjectConfig extends Config {
 
