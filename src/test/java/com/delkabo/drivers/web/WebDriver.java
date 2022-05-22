@@ -13,9 +13,9 @@ public class WebDriver {
 
     public static ProjectConfig config = ConfigFactory.create(ProjectConfig.class);
 
-//    public static boolean isWebMobile() {
-//        return !config.browserMobileView().equals("");
-//    }
+    public static boolean isWebMobile() {
+        return !config.browserMobileView().equals("");
+    }
     public static boolean isRemoteWebDriver() {
         return !config.remoteDriverUrl().equals("");
     }
@@ -39,11 +39,11 @@ public class WebDriver {
         chromeOptions.addArguments("--disable-notifications");
         chromeOptions.addArguments("--lang=en-en");
 
-//        if (isWebMobile()) { // for chrome only
-//            Map<String, Object> mobileDevice = new HashMap<>();
-//            mobileDevice.put("deviceName", config.browserMobileView());
-//            chromeOptions.setExperimentalOption("mobileEmulation", mobileDevice);
-//        }
+        if (isWebMobile()) { // for chrome only
+            Map<String, Object> mobileDevice = new HashMap<>();
+            mobileDevice.put("deviceName", config.browserMobileView());
+            chromeOptions.setExperimentalOption("mobileEmulation", mobileDevice);
+        }
 
         if (isRemoteWebDriver()) {
             capabilities.setCapability("enableVNC", true);
