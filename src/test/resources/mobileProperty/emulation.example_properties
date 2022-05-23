@@ -1,0 +1,5 @@
+deviceName=Pixel_4_API_30
+platformName=Android
+platformVersion=11.0
+url=http://localhost:4723/wd/hub
+app=https://github.com/wikimedia/apps-android-wikipedia/releases/download/latest/app-alpha-universal-release.apk?raw=true

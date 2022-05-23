@@ -1,0 +1,6 @@
+deviceName=Google Pixel 3
+platformVersion=9.0
+loginBS=login browserstack
+passwordBS=password browserstack
+identificateapp=bs://16f7f4a9fdc91a1b1dc98de925d3c3714065f283
+url=http://hub.browserstack.com/wd/hub
