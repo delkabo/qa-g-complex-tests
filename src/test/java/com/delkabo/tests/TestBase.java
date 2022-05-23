@@ -23,8 +23,7 @@ public class TestBase {
 
     @BeforeAll
     static void setUp() {
-        System.setProperty("deviceHost", "local");
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         switch (deviceHost) {
             case "web":
                 BrowserWebDriver.configure();
