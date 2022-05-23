@@ -58,20 +58,24 @@ public class TestBase {
         switch (deviceHost) {
             case "web":
                 sessionId = Attach.sessionId();
-                Attach.addPageSource();
                 Attach.addBrowserConsoleLogs();
+                addAttached();
                 if (BrowserWebDriver.isVideoOn()) {
                     Attach.addVideo(sessionId);
                 }
                 break;
             case "browserstack":
                 sessionId = Attach.sessionId();
+                addAttached();
                 Attach.video(sessionId);
                 break;
             default:
                 sessionId = "";
+                addAttached();
         }
+    }
 
+    private void addAttached() {
         Attach.addScreenshotAs("Last screenshot");
         Attach.addPageSource();
         Selenide.closeWebDriver();
