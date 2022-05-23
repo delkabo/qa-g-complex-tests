@@ -71,7 +71,7 @@ gradle clean -Ddevicehost=${DEVICEHOST} -Dtag={tag}
 ```
 ### :robot: Options for local test
 
-> DEVICEHOST = real, emulation, browserstack, web
+> DEVICEHOST = real, emulation, browserstack, web;
 > TAG = mobile, web
 >
 > DEVICEHOST real, emulation, browserstack and TAG mobile for testing on mobile phone
