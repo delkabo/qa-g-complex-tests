@@ -60,6 +60,9 @@ public class TestBase {
                 sessionId = Attach.sessionId();
                 Attach.addPageSource();
                 Attach.addBrowserConsoleLogs();
+                if (BrowserWebDriver.isVideoOn()) {
+                    Attach.addVideo(sessionId);
+                }
                 break;
             case "browserstack":
                 sessionId = Attach.sessionId();
@@ -73,9 +76,11 @@ public class TestBase {
         Attach.addPageSource();
         Selenide.closeWebDriver();
 
-        if (BrowserWebDriver.isVideoOn()) {
-            Attach.addVideo(sessionId);
-        }
+//        if (deviceHost.equals("web")) {
+//            if (BrowserWebDriver.isVideoOn()) {
+//                Attach.addVideo(sessionId);
+//            }
+//        }
 
 //        if (deviceHost.equals("browserstack")) {
 //            Attach.video(sessionId);
