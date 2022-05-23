@@ -1,7 +1,7 @@
 package com.delkabo.helpers;
 
 import com.codeborne.selenide.Selenide;
-import com.delkabo.drivers.web.WebDriver;
+import com.delkabo.drivers.web.BrowserWebDriver;
 import com.delkabo.helpers.mobile.Browserstack;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Attachment;
@@ -79,7 +79,7 @@ public class Attach {
     }
 
     public static URL getVideoUrl(String sessionId) {
-        String videoUrl = WebDriver.config.videoStorage() + sessionId + ".mp4";
+        String videoUrl = BrowserWebDriver.config.videoStorage() + sessionId + ".mp4";
 
         try {
             return new URL(videoUrl);

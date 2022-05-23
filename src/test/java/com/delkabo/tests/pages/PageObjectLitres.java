@@ -1,7 +1,7 @@
 package com.delkabo.tests.pages;
 
 import com.codeborne.selenide.SelenideElement;
-import com.delkabo.drivers.web.WebDriver;
+import com.delkabo.drivers.web.BrowserWebDriver;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -33,13 +33,13 @@ public class PageObjectLitres {
     }
 
     public PageObjectLitres setLogin() {
-        authorizationLogin.setValue(WebDriver.config.myLogin());
+        authorizationLogin.setValue(BrowserWebDriver.config.myLogin());
         submitContainer.click();
         return this;
     }
 
     public PageObjectLitres setPassword() {
-        authorizationPassword.setValue(WebDriver.config.myPassword());
+        authorizationPassword.setValue(BrowserWebDriver.config.myPassword());
         submitContainer.click();
         return this;
     }
