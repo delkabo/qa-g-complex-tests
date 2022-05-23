@@ -75,15 +75,5 @@ public class TestBase {
         Attach.addScreenshotAs("Last screenshot");
         Attach.addPageSource();
         Selenide.closeWebDriver();
-
-//        if (deviceHost.equals("web")) {
-//            if (BrowserWebDriver.isVideoOn()) {
-//                Attach.addVideo(sessionId);
-//            }
-//        }
-
-//        if (deviceHost.equals("browserstack")) {
-//            Attach.video(sessionId);
-//        }
     }
 }
