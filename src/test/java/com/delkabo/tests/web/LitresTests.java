@@ -69,7 +69,7 @@ public class LitresTests extends TestBase {
     @Severity(SeverityLevel.NORMAL)
     @Feature("Поиск необходимого раздела")
     @Description("Найти раздел")
-    void jobTest(String genres) {
+    void checkGenres(String genres) {
 
         step("Открыть url 'https://www.litres.ru/'", () ->
                 open("https://www.litres.ru/"));
@@ -91,7 +91,7 @@ public class LitresTests extends TestBase {
     @Severity(SeverityLevel.NORMAL)
     @Feature("Поиск необходимого раздела")
     @Description("Найти раздел 'Подборки'") //Подборки
-    void checkPopular() {
+    void checkTopMenu() {
 
         step("Открыть url 'https://www.litres.ru/'", () ->
                 open("https://www.litres.ru/"));
@@ -113,7 +113,7 @@ public class LitresTests extends TestBase {
     @Severity(SeverityLevel.NORMAL)
     @Feature("Поиск необходимого раздела")
     @Description("Проверить раздел 'Популярное' 'Книжные бестселлеры'")
-    void test3() {
+    void checkSection() {
 
         step("Открыть url 'https://www.litres.ru/'", () ->
                 open("https://www.litres.ru/"));
