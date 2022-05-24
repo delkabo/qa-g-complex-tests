@@ -11,7 +11,6 @@ import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -37,11 +36,11 @@ public class WordpressMobileTests extends TestBase {
 
         step("Type search", () -> {
             $(AppiumBy.accessibilityId("Search Wikipedia")).click();
-            $(AppiumBy.id("org.wikipedia.alpha:id/search_src_text")).setValue("Appium");        //org.wikipedia.alpha
+            $(AppiumBy.id("org.wikipedia.alpha:id/search_src_text")).setValue("Appium");
         });
 
         step("Verify content found", () ->
-                $$(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_title")).shouldHave(sizeGreaterThan(0))); //	android.widget.FrameLayout
+                $$(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_title")).shouldHave(sizeGreaterThan(0)));
 
     }
 
@@ -121,7 +120,6 @@ public class WordpressMobileTests extends TestBase {
         });
 
         step("login and password", () -> {
-//            android.widget.EditText
             $(AppiumBy.id("org.wikipedia.alpha:id/create_account_login_button")).click();
             $(AppiumBy.xpath("//android.widget.EditText[@text='Username']")).click();
             $(AppiumBy.xpath("//android.widget.EditText[@text='Username']")).setValue(loginWP);

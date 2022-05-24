@@ -66,14 +66,6 @@ tasks.withType(Test) {
         ]
     }
 
-    test {
-        def tags = System.getProperty("tag") ? System.getProperty("tag") : "web"
-        useJUnitPlatform() {
-            includeTags(tags)
-        }
-
-    }
-
     testLogging {
         lifecycle {
             events "started", "skipped", "failed", "standard_error", "standard_out"
