@@ -90,7 +90,7 @@ public class LitresTests extends TestBase {
     @DisplayName("Найти раздел 'Книжные бестселлеры'")
     @Severity(SeverityLevel.NORMAL)
     @Feature("Поиск необходимого раздела")
-    @Description("Найти раздел 'Подборки'") //Подборки
+    @Description("Найти раздел 'Подборки'")
     void checkTopMenu() {
 
         step("Открыть url 'https://www.litres.ru/'", () ->
