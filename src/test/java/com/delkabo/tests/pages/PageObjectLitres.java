@@ -81,14 +81,12 @@ public class PageObjectLitres {
     }
 
     public PageObjectLitres clickTopMenuGenres(String genres) {
-//        $$(".MoreMenu-module__wrapper").findBy(text(genres)).click();
         $(".Popover-module__popover").$(withText(genres)).click();
         return this;
     }
 
 
     public PageObjectLitres checkTopMenuGenres(String genres) {
-//        groupLeftMenu.shouldHave(text(genres));
         $(".grouped__collection h1").shouldHave(text(genres));
         return this;
     }
