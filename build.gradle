@@ -1,7 +1,6 @@
 plugins {
     id 'java-library'
     id "io.qameta.allure" version "2.9.6"
-    id "io.freefair.lombok" version "6.0.0-m2"
 }
 
 repositories {
@@ -65,14 +64,6 @@ tasks.withType(Test) {
                 'junit.jupiter.execution.parallel.config.strategy'         : 'fixed',
                 'junit.jupiter.execution.parallel.config.fixed.parallelism': System.getProperty("threads").toInteger()
         ]
-    }
-
-    test {
-        def tags = System.getProperty("tag") ? System.getProperty("tag") : "web"
-        useJUnitPlatform() {
-            includeTags(tags)
-        }
-
     }
 
     testLogging {
