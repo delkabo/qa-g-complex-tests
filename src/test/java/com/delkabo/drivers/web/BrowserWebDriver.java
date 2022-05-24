@@ -1,18 +1,10 @@
 package com.delkabo.drivers.web;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.WebDriverProvider;
 import com.delkabo.config.ProjectConfig;
 import org.aeonbits.owner.ConfigFactory;
-import org.openqa.selenium.Capabilities;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.LocalFileDetector;
-import org.openqa.selenium.remote.RemoteWebDriver;
-
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 

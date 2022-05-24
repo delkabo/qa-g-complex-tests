@@ -40,7 +40,8 @@ public class WordpressMobileTests extends TestBase {
         });
 
         step("Verify content found", () ->
-                $$(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_title")).shouldHave(sizeGreaterThan(0)));
+                $$(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_title"))
+                        .shouldHave(sizeGreaterThan(0)));
 
     }
 
@@ -54,7 +55,8 @@ public class WordpressMobileTests extends TestBase {
 
         step("Type search", () -> {
             $(AppiumBy.accessibilityId("Search Wikipedia")).click();
-            $(AppiumBy.id("org.wikipedia.alpha:id/search_src_text")).setValue("Wikipedia");
+            $(AppiumBy.id("org.wikipedia.alpha:id/search_src_text"))
+                    .setValue("Wikipedia");
 
         });
         step("Enter in article", () -> {
