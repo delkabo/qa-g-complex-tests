@@ -97,7 +97,6 @@ task api_tests(type: Test) {
     useJUnitPlatform {
         includeTags "api"
     }
-
 }
 
 
