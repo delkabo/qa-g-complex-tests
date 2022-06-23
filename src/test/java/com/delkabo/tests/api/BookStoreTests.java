@@ -29,6 +29,7 @@ public class BookStoreTests {
     }
 
     @Test
+    @Tag("api")
     void getBookWithSomeLogsTestSpec() {
         given()
                 .spec(request)
@@ -42,6 +43,7 @@ public class BookStoreTests {
     }
 
     @Test
+    @Tag("api")
     void generatedTokenTest() {
         String data = "{ \"userName\": \"alex\", " +
                 "\"password\": \"asdsad#frew_DFS2\" }";
@@ -63,6 +65,7 @@ public class BookStoreTests {
     }
 
     @Test
+    @Tag("api")
     void generatedTokenTestSpec() {
 
         String data = "{ \"userName\": \"alex\", " +
@@ -88,6 +91,7 @@ public class BookStoreTests {
     }
 
     @Test
+    @Tag("api")
     @Description("получить токен")
     void getTokenTest() {
         String data = "{ \"userName\": \"alex\", " +
@@ -113,6 +117,7 @@ public class BookStoreTests {
     }
 
     @Test
+    @Tag("api")
     void generatedTokenWithAllureListenerTest() {
         String data = "{ \"userName\": \"alex\", " +
                 "\"password\": \"asdsad#frew_DFS2\" }";
@@ -137,6 +142,7 @@ public class BookStoreTests {
     }
 
     @Test
+    @Tag("api")
     void generatedTokenWithCustomAllureListenerTest() {
         String data = "{ \"userName\": \"alex\", " +
                 "\"password\": \"asdsad#frew_DFS2\" }";
@@ -159,6 +165,7 @@ public class BookStoreTests {
     }
 
     @Test
+    @Tag("api")
     void generatedTokenWithModelTest() {
 
         Credentials credentials = new Credentials();
@@ -188,6 +195,7 @@ public class BookStoreTests {
     }
 
     @Test
+    @Tag("api")
     void generatedTokenWithLombokTest() {
 
         CredentialsLombok credentials = new CredentialsLombok();

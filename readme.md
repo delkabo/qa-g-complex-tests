@@ -161,3 +161,11 @@ test
 <p align="center">
   <img title="Mobile test Video" src="images/gif/mobile_video.gif">
 </p>
+
+### API
+
+### :robot: Running Tests Locally
+
+```
+gradle clean test -Dtag=api
+```

@@ -39,6 +39,8 @@ public class TestBase {
                 Configuration.browser = BrowserstackMobileDriver.class.getName();
                 Configuration.browserSize = null;
                 break;
+            case "":
+                break;
             default:
                 throw new IllegalArgumentException("need choose deviceHost");
         }
