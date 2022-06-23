@@ -167,5 +167,5 @@ test
 ### :robot: Running Tests Locally
 
 ```
-gradle clean test -Dtag=api
+gradle clean api_tests
 ```
